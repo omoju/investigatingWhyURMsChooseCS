@@ -24,7 +24,7 @@ In addition, you will need to be able to run an jupyter Notebook to do something
 
 In a terminal/command window, go to the top-level project directory `investigatingWhyURMsChooseCS/` (that contains this README). Then run:
 
-```jupyter notebook DataAnalysis.ipynb.ipynb```
+```jupyter notebook DataAnalysis.ipynb```
 
 ## Publication
 - [Its Deeper than Rap: Toward Culturally Responsive CS](http://dl.acm.org/citation.cfm?id=2604994)
