@@ -22,9 +22,9 @@ In addition, you will need to be able to run an iPython Notebook to complete thi
 
 ## Run
 
-In a terminal/command window, go to the top-level project directory `DataAnalysis/` (that contains this README). Then run:
+In a terminal/command window, go to the top-level project directory `investigatingWhyURMsChooseCS/` (that contains this README). Then run:
 
-```ipython notebook DataAnalysis.ipynb```
+```jupyter notebook DataAnalysis.ipynb.ipynb```
 
 ## Publication
 - [Its Deeper than Rap: Toward Culturally Responsive CS](http://dl.acm.org/citation.cfm?id=2604994)
