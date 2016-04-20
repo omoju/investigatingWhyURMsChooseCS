@@ -17,7 +17,7 @@ This project requires Python 2.7 and the following Python libraries installed:
 - [brewer2mpl](https://pypi.python.org/pypi/brewer2mpl/1.4)
 
 
-In addition, you will need to be able to run an iPython Notebook to complete this project.
+In addition, you will need to be able to run an jupyter Notebook to do something similar with your data.
 
 
 ## Run
@@ -34,7 +34,7 @@ In a terminal/command window, go to the top-level project directory `investigati
 
 The dataset that is used in this project is unfortunately not available for mass consumption, as it contains sensitive, *personally identifiable* student data.
 
-The dataset was generate through the use of a survey instrument which contains the following attributes for each data point
+The dataset was generate through the use of a survey instrument which contains the following attributes for each data point based on a likert scale of 1 to 5, 1 *strongly disagree* and 5 corresponding to *strongly agree*:
 
 #### Self reported attitudes about CS
 - atcs_1 I like to use computer science to solve problems.
