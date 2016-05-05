@@ -7,6 +7,17 @@ To learn about the effects of curriculum on the decision to progress along the c
 
 The work was done as part of a doctoral study in Computer Science education. 
 
+-----------------------------------------------------------------------------------
+| Title    | HipHopathy, A Socio-Curricular Study of Introductory Computer Science |
+| -------- | --------------------------------------------------------------------- |
+| Author   | Omoju Miller 							                               |
+| Advisor  | [Dr. Alice Agogino][Alice] 					                       |
+| Degree   | Doctor of Philosophy, Computer Science Education 	                   |
+| Date     | Dec 2015								                               |
+------------------------------------------------------------------------------------
+[Alice]: http://www.me.berkeley.edu/people/faculty/alice-m-agogino
+
+
 ## Install
 
 This project requires Python 2.7 and the following Python libraries installed:
