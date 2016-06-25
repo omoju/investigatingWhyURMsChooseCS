@@ -1,13 +1,12 @@
-\documentclass[oneside,titlepage,numbers=noenddot,headinclude,%
-               footinclude=true,cleardoublepage=empty,abstractoff,BCOR=2mm,%
+\documentclass[twoside,openright,titlepage,numbers=noenddot,headinclude,%
+               footinclude=true,cleardoublepage=empty,abstractoff,BCOR=5mm,%
                paper=a4,fontsize=11pt,ngerman,american]{scrreprt}
-
 
 % Custom config ===============================================================
 
 % Classic thesis
 \usepackage{amssymb}
-\input{texFiles/classicthesis-config}
+\input{classicthesis-config}
 
 % Theorems and definitions
 \usepackage{amsthm}
@@ -73,7 +72,7 @@
       \usepackage{hyperref}
           }
 \makeatother
-\graphicspath{ {figures/} } %Path to images
+\graphicspath{ {/Users/omojumiller/Dropbox/Research/Dissertation/images/} } %Path to images
 
 
 % Landscape tables
@@ -99,7 +98,7 @@
 
 
 % Front pages =================================================================
-\include{texFiles/titlepage}
+\include{titlepage}
 
 % Content =====================================================================
 \pagenumbering{arabic}
@@ -109,14 +108,10 @@
 %----------------------------------------------------------------------------------------
 %  CHAPTER CONTENTS
 %----------------------------------------------------------------------------------------
-\chapter*{Why do URMs Choose CS}
 
-%----------------------------------------------------------------------------------------
-%  PAPER CONTENTS
-%----------------------------------------------------------------------------------------
 \section*{Introduction}
 
-One of most pressing question for my generation to answer is that of equalizing participation in our economic life, and particularly in the new technical economy. In the field of computer science (CS), there is a near absence of women and underrepresented ethnic minorities (African Americans, Hispanics, Native Americans, Pacific Islanders and persons with disabilities) \citep{Trauth:2012:UUT:2132176.2132184,Gurer2002,Zweben2010,Foundation:2013qy}. This statement should be alarming to anyone, because it means that nearly 70\%---women, ethnic minorities and persons with disabilities---of the American workforce is not fully engaged in the technology sector. 
+One of most pressing question for my generation to answer is that of equalizing participation in our economic life, and particularly in the new technical economy. In the field of computer science (CS), there is a near absence of women and underrepresented ethnic minorities (African Americans, Hispanics, Native Americans, Pacific Islanders and persons with disabilities) \cite{Trauth:2012:UUT:2132176.2132184,Gurer2002,Zweben2010,Foundation:2013qy}. This statement should be alarming to anyone, because it means that nearly 70\%---women, ethnic minorities and persons with disabilities---of the American workforce is not fully engaged in the technology sector. 
 
 As can be seen from figure \ref{femSTEMgrad}, in the nineteen eighties, more than 30\% of all graduating universities CS majors were women. By 2010, that number was less than 20\%. Two folk theories have been historically offered to explain this phenomenon. The first states that women are not good at maths, while the second states that maths is a strong indicator of CS aptitude. These two folk theories are tied together to explain the low participation rates of women in CS. Nevertheless, from figure \ref{satMathMajor}, we see that intended CS majors do not have the strongest maths SAT scores \cite{Kinnunen:2006:WSD:1151588.1151604}. From data, we see that this lack of \textit{alleged} maths aptitude alone can not explain the low participation rates of women in CS.
 \begin{figure}[hbtp]
@@ -321,7 +316,7 @@ As a result of the normalization of the data, the numbers denoting the responses
 \begin{table}[!htbp]
 \caption{Survey Finding with Statistical Significance} %title of the table
 \centering % centering table
-\begin{tabular}{|l|l|l||p{4cm}|l|} % creating eight columns
+\begin{tabular}{|l|l|l||l|l|} % creating eight columns
 \hline\hline %inserting double-line
 \multicolumn{2}{ |c| }{Groups} & Survey Instrument & P Value & Significance by Stars\\[0.5ex]
 \hline % inserts single-line
@@ -368,8 +363,7 @@ CS10 & CS61A & clet\_2 & 0.00000     & **** \\ \hline
 \rotatebox{90}{ % rotate table
 \begin{tabular}{|l|l|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|} % creating eight columns
 \multicolumn{6}{c}%
-      {Survey Finding with Statistical Significance [Data Disaggregated]
-      (\textit{continued})}\\[5pt]
+      {Survey Finding with Statistical Significance [Data Disaggregated]}\\[5pt]
 \hline\hline %inserting double-line
 \multicolumn{2}{ |c| }{Groups} & Survey Instrument & Sample Group & P Value & Significance by Stars & P Value & Significance by Stars\\[1ex] 
 \cline{5-8} 
@@ -417,25 +411,7 @@ CS10 & CS61A & atct\_2
 CS10 & CS61A & atct\_3 
 & Class   & & & 0.00911    & ** \\
 & & & Female  & & & 0.00258    & ** \\ \hline
-\end{tabular}}
-\label{surveyDisAggregated}
-\caption{Survey Finding with Statistical Significance [Data Disaggregated]} %title of the table
-\end{table}
 
-\setlength{\extrarowheight}{1.5pt}
-\begin{table}[!htbp]
-\centering % centering table
-\rotatebox{90}{ % rotate table
-
-\begin{tabular}{|l|l|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|} % creating eight columns
-\multicolumn{6}{c}%
-      {Survey Finding with Statistical Significance [Data Disaggregated]
-      (\textit{continued})}\\[5pt]
-\hline\hline %inserting double-line
-\multicolumn{2}{ |c| }{Groups} & Survey Instrument & Sample Group & P Value & Significance by Stars & P Value & Significance by Stars\\[1ex] 
-\cline{5-8} 
-\multicolumn{2}{|c|}{\textbf{}} & & &  \multicolumn{2}{c|}{\textbf{Prior CS}} & \multicolumn{2}{c|}{\textbf{NO Prior CS}}\\[0.5ex]
-\hline % inserts single-line
 CS10 & CS61A & atct\_5
 & Class & 0.00000   & **** & &  \\
 & & & Class   & & & 0.00627 & ** \\
@@ -444,16 +420,16 @@ CS10 & CS61A & atct\_5
 
 CS10 & CS61A & atct\_6
 & Class  & 0.02987   & * & & \\ \hline
+
 \end{tabular}}
 \caption{Survey Finding with Statistical Significance [Data Disaggregated]} %title of the table
+\label{surveyDisAggregated}
 \end{table}
-
 
 \setlength{\extrarowheight}{1.5pt}
 \begin{table}[!htbp]
 \centering % centering table
 \rotatebox{90}{ % rotate table
-
 \begin{tabular}{|l|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|} % creating eight columns
 \multicolumn{6}{c}%
       {Survey Finding with Statistical Significance [Data Disaggregated]
@@ -500,11 +476,11 @@ CS10 & CS61A & blg\_4
 \label{surveyDisAggregatedCont}
 \end{table}
 
+
 \setlength{\extrarowheight}{1.5pt}
 \begin{table}[!htbp]
 \centering % centering table
 \rotatebox{90}{ % rotate table
-
 \begin{tabular}{|l|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|} % creating eight columns
 \multicolumn{6}{c}%
       {Survey Finding with Statistical Significance [Data Disaggregated]
@@ -514,6 +490,7 @@ CS10 & CS61A & blg\_4
 \cline{5-8} 
 \multicolumn{2}{|c|}{\textbf{}} & & &  \multicolumn{2}{c|}{\textbf{Prior CS}} & \multicolumn{2}{c|}{\textbf{NO Prior CS}}\\[0.5ex]
 \hline % inserts single-line
+
 CS10 & CS61A & clet\_2  
 & Class   &   0.00246   &  **   &   & \\
 & & & Class   &   &   &   0.00000 & **** \\
@@ -523,17 +500,17 @@ CS10 & CS61A & clet\_2
 
 CS10 & CS61A & cltrcmp\_2  
 & Female  & 0.00804  & ** & & \\ \hline
-\end{tabular}}
-\end{table}
 
+\end{tabular}}
+\label{surveyDisAggregatedCont}
+\end{table}
 
 \clearpage
 \section *{Findings}
 \subsection *{On Belonging}
 
 To investigate students' perception of CS fitness, as well as their sense of efficacy in the CS classroom, four instruments were designed and coded as follows: 
-\begin{description} 
-\item [blg\_1:] In this class, I feel I belong.
+\begin{description} \item [blg\_1:] In this class, I feel I belong.
 \item [blg\_2:] In this class, I feel awkward and out of place.
 \item [blg\_3:] In this class, I feel like my ideas count.
 \item [blg\_4:] In this class, I feel like I matter.
@@ -652,7 +629,7 @@ Comparing female students with \underline{zero} CS experience against those that
     \label{blg_1_priorcs10}}
   
 %
-\caption{\textbf{Effects of CS10 on CS61A students' self-reported sense of belonging.}}
+\caption{\textbf{Students' responses for survey question: ``In this class, I feel like I belong.''} \textit{Self reported responses are shown for the survey instrument. Sub-figure (a) shows reponses of students in CS10. While sub-figure (b) shows the responses of students who had previously taken CS10 and then moved on to CS61A. Both results are shown dissagregated for gender. From this visualization, we can see that the students who had already taken CS10 seems to have a lower sense of belonging in CS61A, and in particular, female students, this effect seems magnified.}}
 \label{fig:blg_1_cs10_cs61a}
 \end{figure}
 
@@ -687,8 +664,7 @@ To do this, we shift the unit of analysis to the experience of students who had 
 When comparing the experience of belonging between girls who had never taken any CS, with those of girls who had taken CS10 and then moved on to CS61A, this research found no statistical significance on their experiences. From figure \ref{fig:blg_1_cs10ANDN0_CS}, you can see that the scores are almost the same for both cohort at around 27\% of girls feeling a strong sense of belonging.
 
 In answering the research question, i.e., the ability of belonging in CS10 to predict or say something about an intention to move forward in the introductory CS pipeline, a correlation analysis was conducted on the survey instruments that had to do with computational thinking efficacy, CS efficacy, and belonging. The instruments of particular interest are the following:
-\begin{description} 
-\item[blg\_1:] In this class, I feel I belong.
+\begin{description} \item[blg\_1:] In this class, I feel I belong.
 \item[blg\_3:] In this class, I feel like my ideas count.
 \item[blg\_4:] In this class, I feel like I matter.
 \item[atcs\_3:] I can achieve good grades (C or better) in computing courses.
@@ -792,10 +768,12 @@ While CS10 is successfully serving as a gateway into the major for underrepresen
 
 The hope is that as like-minded-people continue to work in this area of equalizing participation in CS, maybe she can finally be the radical, innovative field she has always said she was---by bringing about a different way of life for the 21st century. 
 
-
-% Back pages ==================================================================
-
-\include{texFiles/bibliography}
-
+%----------------------------------------------------------------------------------------
+%  REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\vspace{4\baselineskip}\vspace{-\parskip} % Creaters proper 4 blank line spacing.
+\footnotesize % Makes bibliography 10 pt font.
+\bibliographystyle{unsrtnat} %Can use a different style as long as it is one which uses numbered references in the text.
+\bibliography{dissertation}
 
 \end{document}  
