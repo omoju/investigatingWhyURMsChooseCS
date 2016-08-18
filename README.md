@@ -1,11 +1,10 @@
 # Analyzing socio-curricular factors that affect the decision to choose CS
 
 
-This work presents a study investigating socio-curricular factors that lead historically underrepresented students’ retention and attrition in introductory Computer Science at UC Berkeley. The Beauty and Joy of Computing (CS10), an introductory CS course for non-majors and the Structure and Interpretation of Computer Programs (CS61A), an introductory CS course for majors are investigated as critical gateway courses in the introductory to Computer Science pipeline.
 
-To learn about the effects of curriculum on the decision to progress along the computer science pipeline, an indept data analysis was performed on data gathered by the study. Preliminary results show agreement with theoretical predictions and significant improvement over previous efforts. 
+This work presents a data-drive approach at investigating the socio-curricular factors that lead historically underrepresented students’ retention and attrition in introductory Computer Science at UC Berkeley. The Beauty and Joy of Computing (CS10), an introductory CS course for non-majors and the Structure and Interpretation of Computer Programs (CS61A), an introductory CS course for majors are investigated as critical gateway courses in the introductory to Computer Science pipeline.
 
-The work was done as part of a doctoral study in Computer Science education. 
+The work was done as part of a doctoral study in Computer Science education.
 
 -----------------------------------------------------------------------------------
 | Title    | HipHopathy, A Socio-Curricular Study of Introductory Computer Science |
@@ -39,7 +38,7 @@ In a terminal/command window, go to the top-level project directory `investigati
 
 ## Publication
 - [Its Deeper than Rap: Toward Culturally Responsive CS](http://dl.acm.org/citation.cfm?id=2604994)
-- [Gaining insights into the effects of culturally responsive curriculum on historically underrepresented students’ desire for computer science](Miller_ASEE_2016_DRAFT.pdf) To be presented at in ASEE 2016
+- [Gaining insights into the effects of culturally responsive curriculum on historically underrepresented students’ desire for computer science](Miller_ASEE_2016_DRAFT.pdf)
 
 ## Data
 
@@ -83,7 +82,7 @@ The dataset was generate through the use of a survey instrument which contains t
 - blg_3 In this class, I feel like my ideas count.
 - blg_4 In this class, I feel like I matter.
 
-#### Self reported beliefs about 
+#### Self reported beliefs about
 - clet_1 I work well in teams.
 - clet_2 I think about the ethical, legal, and social implications of computing.
 - cltrcmp_1 I am comfortable interacting with peers from different backgrounds than my own (based on race, sexuality, income, and so on.)
@@ -115,4 +114,3 @@ The dataset was generate through the use of a survey instrument which contains t
 ## License
 
 The contents of this repository are covered under the [GNU GENERAL PUBLIC LICENSE](License.md).
-
