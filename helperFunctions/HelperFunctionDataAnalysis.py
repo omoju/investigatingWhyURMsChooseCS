@@ -5,12 +5,6 @@ from numpy  import array
 import numpy as np
 from pylab import *
 
-import warnings;
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore"); 
-    import matplotlib.pyplot as plt
-    import matplotlib.mlab as mlab
-
 # Set defaults
 # For cute colors
 
@@ -329,3 +323,133 @@ def worstCaseScenario(N, myFileName, x1, x1Title, x2, x2Title, myTitle):
     fileName.append(myFileName)
     fig.savefig(fileName[0], dpi=72)
     rcParams.update(params)
+
+    
+def genPValues(itemDimension, theCategory):
+    
+    #import scipy.stats
+    temp =[]
+    for key in itemDimension:
+        CS10Temp = []   
+        CS10Temp.append('cs10'+theCategory+'.'+key+'.values')
+        CS61aTemp = []
+        CS61aTemp.append('cs61a'+theCategory+'.'+key+'.values')
+
+        CS10FemaleTemp = []
+        CS10FemaleTemp.append('cs10'+theCategory+'_female'+'.'+key+'.values')
+        CS61aFemaleTemp = []
+        CS61aFemaleTemp.append('cs61a'+theCategory+'_female'+'.'+key+'.values')
+        
+        CS10MaleTemp = []
+        CS10MaleTemp.append('cs10'+theCategory+'_male'+'.'+key+'.values')
+        CS61aMaleTemp = []
+        CS61aMaleTemp.append('cs61a'+theCategory+'_male'+'.'+key+'.values')
+        
+    
+        z1, p1 = scipy.stats.mannwhitneyu(eval(CS10Temp[0]),eval(CS61aTemp[0])) 
+        p_value1 = p1 * 2
+        
+        z2, p2 = scipy.stats.mannwhitneyu(eval(CS10FemaleTemp[0]),eval(CS61aFemaleTemp[0])) 
+        p_value2 = p2 * 2
+            
+        z3, p3 = scipy.stats.mannwhitneyu(eval(CS10MaleTemp[0]),eval(CS61aMaleTemp[0])) 
+        p_value3 = p3 * 2
+
+        s1 = stars(p1)
+        s2 = stars(p2)
+        s3 = stars(p3)
+        
+        print 'Test for significance between CS10 and CS61A\n'
+        print key, '\t', dataDescription[key]
+        if p_value1 < 0.05:
+            print 'Class', '\t', '%.8f' % p_value1, '\t', 'Statistically Significant:',s1 
+        if p_value2 < 0.05:
+            print 'Female', '\t', '%.8f' % p_value2, '\t', 'Statistically Significant:', s2
+        if p_value3 < 0.05:
+            print 'Male', '\t', '%.8f' % p_value3, '\t', 'Statistically Significant:', s3
+        print '\n'
+       
+        
+def genPValues_2(itemDimension):
+    '''
+    I am using this function to test for statistical significance between students with prior exposure 
+    and students without prior exposure
+
+    ''' 
+    temp =[]
+    for key in itemDimension:
+        CS10_CS_Temp = []   
+        CS10_CS_Temp.append('cs10_CS'+'.'+key+'.values')
+        CS61a_CS_Temp = []
+        CS61a_CS_Temp.append('cs61a_CS'+'.'+key+'.values')
+        
+        CS10_NO_CS_Temp = []   
+        CS10_NO_CS_Temp.append('cs10_NO_CS'+'.'+key+'.values')
+        CS61a_NO_CS_Temp = []
+        CS61a_NO_CS_Temp.append('cs61a_NO_CS'+'.'+key+'.values')
+        
+        CS10_CS_FemaleTemp = []
+        CS10_CS_FemaleTemp.append('cs10_CS_female'+'.'+key+'.values')
+        CS61a_CS_FemaleTemp = []
+        CS61a_CS_FemaleTemp.append('cs61a_CS_female'+'.'+key+'.values')
+        
+        CS10_NO_CS_FemaleTemp = []
+        CS10_NO_CS_FemaleTemp.append('cs10_NO_CS_female'+'.'+key+'.values')
+        CS61a_NO_CS_FemaleTemp = []
+        CS61a_NO_CS_FemaleTemp.append('cs61a_NO_CS_female'+'.'+key+'.values')
+        
+        CS10_CS_MaleTemp = []
+        CS10_CS_MaleTemp.append('cs10_CS_male'+'.'+key+'.values')
+        CS61a_CS_MaleTemp = []
+        CS61a_CS_MaleTemp.append('cs61a_CS_male'+'.'+key+'.values')
+        
+        CS10_NO_CS_MaleTemp = []
+        CS10_NO_CS_MaleTemp.append('cs10_NO_CS_male'+'.'+key+'.values')
+        CS61a_NO_CS_MaleTemp = []
+        CS61a_NO_CS_MaleTemp.append('cs61a_NO_CS_male'+'.'+key+'.values')
+    
+        z_CS, p_CS = scipy.stats.mannwhitneyu(eval(CS10_CS_Temp[0]),eval(CS61a_CS_Temp[0])) 
+        p_value1 = p_CS * 2
+        z_NO_CS, p_NO_CS = scipy.stats.mannwhitneyu(eval(CS10_NO_CS_Temp[0]),eval(CS61a_NO_CS_Temp[0])) 
+        p_value2 = p_NO_CS * 2
+        
+        z_CSfemale, p_CSfemale = scipy.stats.mannwhitneyu(eval(CS10_CS_FemaleTemp[0]),
+                                                          eval(CS61a_CS_FemaleTemp[0])) 
+        p_value3 = p_CSfemale * 2
+        z_NO_CSfemale, p_NO_CSfemale = scipy.stats.mannwhitneyu(eval(CS10_NO_CS_FemaleTemp[0]),
+                                                                eval(CS61a_NO_CS_FemaleTemp[0])) 
+        p_value4 = p_NO_CSfemale * 2
+        
+        z_CSmale, p_CSmale = scipy.stats.mannwhitneyu(eval(CS10_CS_MaleTemp[0]),
+                                                      eval(CS61a_CS_MaleTemp[0])) 
+        p_value5 = p_CSmale * 2
+        z_NO_CSmale, p_NO_CSmale = scipy.stats.mannwhitneyu(eval(CS10_NO_CS_MaleTemp[0]),
+                                                            eval(CS61a_NO_CS_MaleTemp[0])) 
+        p_value6 = p_NO_CSmale * 2
+    
+
+        s1 = stars(p_CS)
+        s2 = stars(p_NO_CS)
+        s3 = stars(p_CSfemale)
+        s4 = stars(p_NO_CSfemale)
+        s5 = stars(p_CSmale)
+        s6 = stars(p_NO_CSmale)
+        
+        
+       
+        print 'Test for significance between CS10 and CS61A\n'
+        print key, '\t', dataDescription[key]
+        if p_value1 < 0.05:
+            print 'Prior CS Class', '\t', '%.5f' % p_value1, '\t', 'Statistically Significant:',s1 
+        if p_value2 < 0.05:   
+            print 'NoPrior CS Class', '\t', '%.5f' % p_value2, '\t', 'Statistically Significant:', s2
+        if p_value3 < 0.05:
+            print 'Prior CS Female', '\t', '%.5f' % p_value3, '\t', 'Statistically Significant:', s3
+        if p_value4 < 0.05:
+            print 'No Prior CS Female', '\t', '%.5f' % p_value4, '\t', 'Statistically Significant:', s4
+        if p_value5 < 0.05:
+            print 'Prior CS Male', '\t', '%.5f' % p_value5, '\t', 'Statistically Significant:', s5
+        if p_value6 < 0.05:
+            print 'No Prior CS Male', '\t', '%.5f' % p_value6, '\t', 'Statistically Significant:', s6
+        print '\n'
+       
