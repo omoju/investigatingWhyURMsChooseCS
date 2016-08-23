@@ -508,19 +508,21 @@ def genPValues_2(itemDimension, str1, str2, dataFrame1, dataFrame2, dataDescript
         
         
        
-        print 'Test for significance between CS10 and CS61A\n'
-        print key, '\t', dataDescription[key]
+        print 'Test for significance between CS10 and CS61A'
+        print "{:8}:{:3}{:20}".format(key, ' ', dataDescription[key])
+        
+        
         if p_value1 < 0.05:
-            print 'Prior CS Class', '\t', '%.5f' % p_value1, '\t', 'Statistically Significant:',s1 
+            print"{:20}{:<10.6f}{:30}{:<10}".format('Prior CS Class', p_value1, 'Statistically Significant:', s1)
         if p_value2 < 0.05:   
-            print 'NoPrior CS Class', '\t', '%.5f' % p_value2, '\t', 'Statistically Significant:', s2
+            print"{:20}{:<10.6f}{:30}{:<10}".format('NoPrior CS Class', p_value2, 'Statistically Significant:', s2)
         if p_value3 < 0.05:
-            print 'Prior CS Female', '\t', '%.5f' % p_value3, '\t', 'Statistically Significant:', s3
+            print"{:20}{:<10.6f}{:30}{:<10}".format('Prior CS Female', p_value3, 'Statistically Significant:', s3)
         if p_value4 < 0.05:
-            print 'No Prior CS Female', '\t', '%.5f' % p_value4, '\t', 'Statistically Significant:', s4
+            print"{:20}{:<10.6f}{:30}{:<10}".format('No Prior CS Female', p_value4, 'Statistically Significant:', s4)
         if p_value5 < 0.05:
-            print 'Prior CS Male', '\t', '%.5f' % p_value5, '\t', 'Statistically Significant:', s5
+            print"{:20}{:<10.6f}{:30}{:<10}".format('Prior CS Male', p_value5, 'Statistically Significant:', s5)
         if p_value6 < 0.05:
-            print 'No Prior CS Male', '\t', '%.5f' % p_value6, '\t', 'Statistically Significant:', s6
+            print"{:20}{:<10.6f}{:30}{:<10}".format('No Prior CS Male', p_value6, 'Statistically Significant:', s6)
         print '\n'
        
