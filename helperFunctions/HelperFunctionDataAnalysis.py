@@ -4,6 +4,7 @@ from numpy  import array
 
 import numpy as np
 from pylab import *
+import scipy.stats
 
 # Set defaults
 # For cute colors
@@ -15,6 +16,9 @@ bmap_3 = brewer2mpl.get_map('BrBG', 'diverging', 11) # Green
 colors_1 = bmap_1.mpl_colors
 colors_2 = bmap_2.mpl_colors
 colors_3 = bmap_3.mpl_colors
+
+
+    
 
 
 def turnArray(x):
@@ -193,7 +197,7 @@ def genFigure(key, myFileName, theCategory, theXLabel, x0, x1, myTitle):
             'xmax_gen' : 5.0,
             'ymin_gen' : 0,
             'ymax_gen' : 100,
-            'xlabel' : theXLabel[0],
+            'xlabel' : theXLabel,
             'ylabel' : 'Scores',
             'title' : '',
             'legend_label': ["CS10", "CS61A"],
@@ -239,7 +243,7 @@ def genGenderFigure(key, myFileName, theCategory, attr, theXLabel, x0, x1, myTit
             'xmax_gen' : 5.0,
             'ymin_gen' : 0,
             'ymax_gen' : 100,
-            'xlabel' : theXLabel[0],
+            'xlabel' : theXLabel,
             'ylabel' : 'Scores',
             'title' : '',
             'legend_label': ['CS10', 'CS61A'],
@@ -274,10 +278,12 @@ def worstCaseScenario(N, myFileName, x1, x1Title, x2, x2Title, myTitle):
      Function creates a data plot.
 
         Input:
-            N:
-            myFileName: the name of the figure to be stored
-            x0: datapoints to be plotted represent cs10 information for the dimension and category
-            x1: ditto cs61a
+            N: int 
+            myFileName: string, the name of the figure to be stored
+            x1: datapoints to be plotted represent cs10 information for the dimension and category
+            x2: ditto cs61a
+            x1Title: 
+            x2Title: 
             myTitle: the title of our fig
         
         
@@ -325,25 +331,51 @@ def worstCaseScenario(N, myFileName, x1, x1Title, x2, x2Title, myTitle):
     rcParams.update(params)
 
     
-def genPValues(itemDimension, theCategory):
+def genPValues(itemDimension, theCategory, str1, str2, dataFrame1, dataFrame2, dataDescription):
+    '''
+     Function generate p-values.
+
+        Input:
+            itemDimension: string, representing a survey category like 'blg'
+            theCategory: a string that takes the following values ['_NO_CS', '_CS', '']
+            str1: a string
+            str2: a string 
+            dataFrame1: dataframe holding cs10 data
+            dataFrame2: ditto cs61a
+            dataDescription: data frame of survey items description
+            
+        
+        
+    '''
     
-    #import scipy.stats
-    temp =[]
+    cs10, cs61a = dataFrame1, dataFrame2
+    cs10_female = cs10[cs10.gender == 'Female']
+    cs10_male = cs10[cs10.gender == 'Male']
+    cs10_female = cs10_female.reset_index(drop=True)
+    cs10_male = cs10_male.reset_index(drop=True)
+
+
+    cs61a_female = cs61a[cs61a.gender == 'Female']
+    cs61a_male = cs61a[cs61a.gender == 'Male']
+    cs61a_female = cs61a_female.reset_index(drop=True)
+    cs61a_male = cs61a_male.reset_index(drop=True)
+
+    temp = []
     for key in itemDimension:
         CS10Temp = []   
-        CS10Temp.append('cs10'+theCategory+'.'+key+'.values')
+        CS10Temp.append(str1+theCategory+'.'+key+'.values')
         CS61aTemp = []
-        CS61aTemp.append('cs61a'+theCategory+'.'+key+'.values')
+        CS61aTemp.append(str2+theCategory+'.'+key+'.values')
 
         CS10FemaleTemp = []
-        CS10FemaleTemp.append('cs10'+theCategory+'_female'+'.'+key+'.values')
+        CS10FemaleTemp.append(str1+theCategory+'_female'+'.'+key+'.values')
         CS61aFemaleTemp = []
-        CS61aFemaleTemp.append('cs61a'+theCategory+'_female'+'.'+key+'.values')
+        CS61aFemaleTemp.append(str2+theCategory+'_female'+'.'+key+'.values')
         
         CS10MaleTemp = []
-        CS10MaleTemp.append('cs10'+theCategory+'_male'+'.'+key+'.values')
+        CS10MaleTemp.append(str1+theCategory+'_male'+'.'+key+'.values')
         CS61aMaleTemp = []
-        CS61aMaleTemp.append('cs61a'+theCategory+'_male'+'.'+key+'.values')
+        CS61aMaleTemp.append(str2+theCategory+'_male'+'.'+key+'.values')
         
     
         z1, p1 = scipy.stats.mannwhitneyu(eval(CS10Temp[0]),eval(CS61aTemp[0])) 
@@ -370,12 +402,51 @@ def genPValues(itemDimension, theCategory):
         print '\n'
        
         
-def genPValues_2(itemDimension):
+def genPValues_2(itemDimension, str1, str2, dataFrame1, dataFrame2, dataDescription):
     '''
-    I am using this function to test for statistical significance between students with prior exposure 
-    and students without prior exposure
+     Function generate p-values.
 
-    ''' 
+        Input:
+            itemDimension: string, representing a survey category like 'blg'
+            str1: a string
+            str2: a string 
+            dataFrame1: dataframe holding cs10 data
+            dataFrame2: ditto cs61a
+            dataDescription: data frame of survey items description
+            
+        
+        
+    '''
+    
+    cs10, cs61a = dataFrame1, dataFrame2
+    cs10_female = cs10[cs10.gender == 'Female']
+    cs10_male = cs10[cs10.gender == 'Male']
+    cs10_female = cs10_female.reset_index(drop=True)
+    cs10_male = cs10_male.reset_index(drop=True)
+
+
+    cs61a_female = cs61a[cs61a.gender == 'Female']
+    cs61a_male = cs61a[cs61a.gender == 'Male']
+    cs61a_female = cs61a_female.reset_index(drop=True)
+    cs61a_male = cs61a_male.reset_index(drop=True)
+
+    # prcs_2: Did you have any exposure to Computer Science before UC Berkeley?
+    cs61a_NO_CS = cs61a[cs61a.prcs_2 == 'No']
+    cs10_NO_CS = cs10[cs10.prcs_2 == 'No']
+
+    cs61a_NO_CS_female = cs61a_female[cs61a_female.prcs_2 == 'No']
+    cs61a_NO_CS_male = cs61a_male[cs61a_male.prcs_2 == 'No']
+    cs10_NO_CS_female = cs10_female[cs10_female.prcs_2 == 'No']
+    cs10_NO_CS_male = cs10_male[cs10_male.prcs_2 == 'No']
+
+    cs61a_CS = cs61a[cs61a.prcs_2 == 'Yes']
+    cs10_CS = cs10[cs10.prcs_2 == 'Yes']
+
+    cs10_CS_female = cs10_female[cs10_female.prcs_2 == 'Yes']
+    cs10_CS_male = cs10_male[cs10_male.prcs_2 == 'Yes']
+    cs61a_CS_female = cs61a_female[cs61a_female.prcs_2 == 'Yes']
+    cs61a_CS_male = cs61a_male[cs61a_male.prcs_2 == 'Yes']
+    
     temp =[]
     for key in itemDimension:
         CS10_CS_Temp = []   
