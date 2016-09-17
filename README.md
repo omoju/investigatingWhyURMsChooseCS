@@ -2,7 +2,7 @@
 
 
 
-This work presents a data-drive approach at investigating the socio-curricular factors that lead historically underrepresented students’ retention and attrition in introductory Computer Science at UC Berkeley. The Beauty and Joy of Computing (CS10), an introductory CS course for non-majors and the Structure and Interpretation of Computer Programs (CS61A), an introductory CS course for majors are investigated as critical gateway courses in the introductory to Computer Science pipeline.
+This work presents a data-driven approach to investigating the socio-curricular factors that lead historically underrepresented students’ retention and attrition in introductory Computer Science at UC Berkeley. The Beauty and Joy of Computing (CS10), an introductory CS course for non-majors and the Structure and Interpretation of Computer Programs (CS61A), an introductory CS course for majors are investigated as critical gateway courses in the introductory to Computer Science pipeline.
 
 The work was done as part of a doctoral study in Computer Science education.
 
